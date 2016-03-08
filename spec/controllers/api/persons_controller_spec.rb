@@ -16,6 +16,32 @@ describe Api::PersonsController do
        get :index
        expect(response.body).to eq([person].to_json)
      end
+
+
+     it "sorts results by parameter passed in" do
+        person1 = FactoryGirl.create :person
+
+     end
+  end
+
+
+  describe "GET index sorting" do
+    let!(:person1){ FactoryGirl.create :person, first_name: 'Alan', last_name: 'Adder', birth_date: Date.parse('1970-01-01')}
+    let!(:person2){ FactoryGirl.create :person, first_name: 'William', last_name: 'Wallace', birth_date: Date.parse('1980-01-01')}
+    let!(:person3){ FactoryGirl.create :person, first_name: 'Harry', last_name: 'Yellow', birth_date: Date.parse('1975-01-01')}
+
+
+
+     it "orders the people by first name" do
+       get :index
+       expect(response.body).to eq([person].to_json)
+     end
+
+
+     it "sorts results by parameter passed in" do
+        person1 = FactoryGirl.create :person
+
+     end
   end
 
 
