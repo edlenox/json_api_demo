@@ -3,7 +3,19 @@ class Api::PersonsController < ApplicationController
 
 
   def index
-    @persons = Person.all
+
+    sort_param = case params[:sort]
+    when 'age'
+      :birth_date
+    when 'first_name'
+     :first_name
+    when 'last_name'
+     :last_name
+    else
+     :last_name
+    end
+
+    @persons = Person.all.order(sort_param)
     render json: @persons.as_json
   end
 

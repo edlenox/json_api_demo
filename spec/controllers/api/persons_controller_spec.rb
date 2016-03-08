@@ -33,15 +33,30 @@ describe Api::PersonsController do
 
 
      it "orders the people by first name" do
-       get :index
-       expect(response.body).to eq([person].to_json)
+       first_person_by_first_name = FactoryGirl.create :person, first_name: 'AAA', last_name: 'Adder', birth_date: Date.parse('1970-01-01')
+       get :index, {sort: 'first_name'}
+       expect(assigns(:persons)).to eq([first_person_by_first_name, person1, person3, person2])
+     end
+
+     it "orders the people by last name" do
+       first_person_by_last_name = FactoryGirl.create :person, first_name: 'zzz', last_name: 'AAA', birth_date: Date.parse('1970-01-01')
+       get :index, {sort: 'last_name'}
+       expect(assigns(:persons)).to eq([first_person_by_last_name, person1, person2, person3])
+     end
+
+     it "orders the people by age" do
+       first_person_by_age = FactoryGirl.create :person, first_name: 'AAA', last_name: 'Adder', birth_date: Date.parse('1969-01-01')
+       get :index, {sort: 'age'}
+       expect(assigns(:persons)).to eq([first_person_by_age, person1, person3, person2])
+     end
+
+     it "doesn't order the people by age incorrectly" do
+       first_person_by_age = FactoryGirl.create :person, first_name: 'AAA', last_name: 'Adder', birth_date: Date.parse('1969-01-01')
+       get :index, {sort: 'age'}
+       expect(assigns(:persons)).to_not eq([first_person_by_age, person1, person2, person3])
      end
 
 
-     it "sorts results by parameter passed in" do
-        person1 = FactoryGirl.create :person
-
-     end
   end
 
 
