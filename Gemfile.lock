@@ -113,6 +113,7 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -211,6 +212,7 @@ DEPENDENCIES
   guard-rspec
   httparty
   jbuilder (~> 2.0)
+  pg
   rack-test
   rails (= 4.2.0)
   rspec-rails

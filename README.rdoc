@@ -15,4 +15,15 @@ Steps:
 * Create a homepage with some simple buttons to test the api
 * Deploy to heroku
 
+Usage:
+* Create a user
+
+```
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 86839fd2-5d3d-8a2e-049d-f510c2f7f056" -d '{
+  "first_name": "ed",
+  "last_name": "lenox",
+  "birth_date": "1970-03-06"
+}' "http://localhost:3000/api/persons"
+```
+
 
