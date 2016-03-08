@@ -58,8 +58,6 @@ describe Api::PersonsController do
        get :index, {sort: 'age'}
        expect(assigns(:persons)).to_not eq([first_person_by_age, person1, person2, person3])
      end
-
-
   end
 
 
@@ -121,7 +119,19 @@ describe Api::PersonsController do
          expect(response).to have_http_status(:unprocessable_entity)
        end
 
+    end
 
+    describe "GET show" do
+      let!(:person){ FactoryGirl.create :person}
+      it "renders a person" do
+        get :show, {id: person.id}
+        expect(response.body).to eq(person.to_json(with_joke: true))
+      end
+
+      it "responds with 422 if not found" do
+        get :show, {id: -1}
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
     end
 
 

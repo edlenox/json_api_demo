@@ -211,6 +211,7 @@ DEPENDENCIES
   guard-rspec
   httparty
   jbuilder (~> 2.0)
+  rack-test
   rails (= 4.2.0)
   rspec-rails
   sdoc (~> 0.4.0)

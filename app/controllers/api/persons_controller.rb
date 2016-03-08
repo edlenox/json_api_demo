@@ -16,6 +16,17 @@ class Api::PersonsController < ApplicationController
     render json: @persons.as_json(with_joke: true)
   end
 
+
+  def show
+    @person = Person.find_by(id: params[:id])
+    if @person
+      render json: @person.as_json(with_joke: true)
+    else
+      render json: @person, status: :unprocessable_entity
+    end
+  end
+
+
   def update
     @person = Person.find_by(id: params[:id])
     if @person && @person.update(allow_params)
