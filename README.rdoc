@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# A quick rails app to show a restful json api
 
-* Ruby version
+* ruby 2.2
+* rails 4.2.0
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Steps:
+* Setup a basic rails project using rspec as the test framework
+* Using TDD I will add a controller test which is essentially a feature test for an API
+* Next add a model test to test for existence of model and attributes
+* Generate the model and make sure test passes
+* Generate the controller and make sure test passes
+* Create a homepage with some simple buttons to test the api
+* Deploy to heroku
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
