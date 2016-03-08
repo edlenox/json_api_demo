@@ -82,6 +82,7 @@ guard :rspec, cmd:"bundle exec rspec" do
 
   # Ruby files
   ruby = dsl.ruby
+  watch(%r{^app/services/(.+)\.rb$})     { |m| "spec/services/#{m[1]}_spec.rb" }
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # Rails files

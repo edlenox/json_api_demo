@@ -1,22 +1,19 @@
 class Api::PersonsController < ApplicationController
 
-
-
   def index
-
     sort_param = case params[:sort]
     when 'age'
       :birth_date
     when 'first_name'
-     :first_name
+     "lower(first_name)"
     when 'last_name'
-     :last_name
+     "lower(last_name)"
     else
-     :last_name
+     :id
     end
 
     @persons = Person.all.order(sort_param)
-    render json: @persons.as_json
+    render json: @persons.as_json(with_joke: true)
   end
 
   def update

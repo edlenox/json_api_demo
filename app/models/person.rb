@@ -12,9 +12,16 @@ class Person < ActiveRecord::Base
 
 
   def as_json(options={})
-    {id: id, first_name: first_name, last_name: last_name, age: age}
+    hash = {id: id, first_name: first_name, last_name: last_name, age: age}
+    if(options[:with_joke])
+      hash[:joke] = joke
+    end
+    hash
   end
 
-
+  private
+  def joke
+    JokeService.random_joke self
+  end
 
 end

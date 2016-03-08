@@ -30,13 +30,17 @@ RSpec.describe Person, type: :model do
     end
 
     it "renders a person as JSON" do
+      joke = "Knock Knock"
+      allow(JokeService).to receive(:random_joke).and_return(joke)
       expect(person.as_json).to eq( {id: person.id,
                                       first_name: person.first_name,
                                       last_name: person.last_name,
-                                      age: person.age})
+                                      age: person.age })
     end
 
   end
+
+
 
 
 end

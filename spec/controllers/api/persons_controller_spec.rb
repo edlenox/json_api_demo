@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe Api::PersonsController do
 
+  before(:each) do
 
+   allow(JokeService).to receive(:random_joke).and_return("joke")
+  end
 
   describe "GET index" do
     let!(:person){ FactoryGirl.create :person}
@@ -14,7 +17,7 @@ describe Api::PersonsController do
 
      it "renders the people as json" do
        get :index
-       expect(response.body).to eq([person].to_json)
+       expect(response.body).to eq([person].to_json(with_joke: true))
      end
 
 
