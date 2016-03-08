@@ -36,5 +36,6 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rails'
+  gem 'timecop'
 end
 
