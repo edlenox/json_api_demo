@@ -5,11 +5,11 @@ class Api::PersonsController < ApplicationController
     when 'age'
       :birth_date
     when 'first_name'
-     "lower(first_name)"
+      "lower(first_name)"
     when 'last_name'
-     "lower(last_name)"
+      "lower(last_name)"
     else
-     :id
+      :id
     end
 
     @persons = Person.all.order(sort_param)
@@ -48,7 +48,7 @@ class Api::PersonsController < ApplicationController
   def destroy
     @person = Person.find_by(id: params[:id])
     if @person && @person.destroy
-        render json: @person, status: :ok
+      render json: @person, status: :ok
     else
       render json: @person, status: :unprocessable_entity
     end
