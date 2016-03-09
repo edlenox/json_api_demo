@@ -1,5 +1,5 @@
 # README
-
+[![Code Climate](https://codeclimate.com/github/edlenox/json_api_demo/badges/gpa.svg)](https://codeclimate.com/github/edlenox/json_api_demo)
 
 ## A quick rails app to show a restful json api
 
