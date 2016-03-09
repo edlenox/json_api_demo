@@ -91,6 +91,7 @@ describe Api::PersonsController do
       it "updates a person" do
         put :update, {id: person.id, first_name: "joe"}
         expect(Person.first.first_name).to eq("joe")
+        expect(response).to have_http_status(:ok)
       end
 
       it "returns 422 if person doesn't exist" do

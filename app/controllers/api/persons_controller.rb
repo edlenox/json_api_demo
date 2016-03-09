@@ -30,7 +30,7 @@ class Api::PersonsController < ApplicationController
   def update
     @person = Person.find_by(id: params[:id])
     if @person && @person.update(allow_params)
-      render json: @person, status: :updated
+      render json: @person, status: :ok
     else
       render json: @person, status: :unprocessable_entity
     end
