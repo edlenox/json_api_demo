@@ -1,13 +1,13 @@
 == README
 
 
-# A quick rails app to show a restful json api
+== A quick rails app to show a restful json api
 
 * ruby 2.2
 * rails 4.2.0
 * deployed to heroku
 
-##Overview
+==Overview
 * This is a basic rails project using rspec as the test framework
 * TDD was used
 * API is namespaced under "API"
@@ -20,7 +20,7 @@ https://www.getpostman.com/collections/6fc5360c05b10a02dd55
 Here are the curl commands for the REST API actions supported
 
 
-## Create a user
+== Create a user
 
 ```
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache"  -d '{
@@ -32,7 +32,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache"  -
 
 
 
-## List Users
+== List Users
 
 N.B. Sort by appending the sort param. Can be one of [first_name, last_name, age]
 
@@ -42,14 +42,14 @@ curl -X GET -H "Cache-Control: no-cache"  "https://ff-json-api.herokuapp.com//ap
 
 
 
-## Show user
+== Show user
 ```
 curl -X GET -H "Cache-Control: no-cache" -H "Postman-Token: 4709aed0-7cef-2a65-4960-7eeeb5aa312e" "https://ff-json-api.herokuapp.com/api/persons/1"
 ```
 
 
 
-## Update a user
+== Update a user
 ```
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
   "first_name": "Ed"
@@ -57,7 +57,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ```
 
 
-## Delete a user
+== Delete a user
 ```
 curl -X DELETE -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://ff-json-api.herokuapp.com/api/persons/5"
 ```
